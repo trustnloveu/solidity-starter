@@ -6,13 +6,14 @@ contract Property {
     // Default Visiblity for variables is 'Private'
     // 'Public' Declaration is equals to 'Getter Function'
     int public price;
-    string location = "Busan"; // 'private' is omitted
+    string location = "Busan"; // 'private' is omitted. By default is private
     
     function setPrice(int _price) public {
         price = _price;
     }
 
     // view = pure, which can restrict function state mutablitiy
+    // A function declared 'view' does not alter the blockchain
     function getPrice() public view returns(int) {
         return price;
     }
@@ -21,6 +22,7 @@ contract Property {
         location = _location;
     }
 
+    // String types must be declared memory or storage
     function getLocation() public view returns(string memory) {
         return location;
     }

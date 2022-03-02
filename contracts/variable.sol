@@ -4,6 +4,7 @@ pragma solidity ^0.8.0;
 
 contract Property {
     // State Variable
+    // Declaring state variables saved in contract's 'storage'
     int public price; // default value = 0 in 'int'
     string constant public location = "South Korea"; // 'constant' type should be declared with default value
 
