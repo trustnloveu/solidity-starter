@@ -29,7 +29,7 @@ contract loopContract {
     }
 
     
-    function checkMultipleValidity(uint _num, uint _nums) public view returns (bool) {
+    function checkMultipleValidity(uint _num, uint _nums) public pure returns (bool) {
         // modulo operator = % the remainder value of R from integers
         // take two numbers and if they return modulo of zero then the sec
         // number is a multiple of the first 
