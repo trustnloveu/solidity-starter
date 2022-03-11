@@ -40,3 +40,49 @@ contract GlobalVariable {
         return start - end;
     }
 }
+
+
+/***************************************************************************************************************** 
+    
+    Special variables (global variables)
+
+        It's globally available variables and provides information about the blockchain. 
+    
+        msg.sender          : Sender of the message (current call), msg.value (uint): Number of wei sent with the message., 
+        block.timestamp     : Current block timestamp as seconds since unix epoch, block.number (uint): current block number
+        ...
+
+
+        REF ::: https://docs.soliditylang.org/en/v0.8.10/units-and-global-variables.html
+
+ *****************************************************************************************************************/
+
+contract LedgerBalance {
+
+    mapping(address => uint) balance;
+
+    function updatesBalance(uint newBalance) public {
+        balance[msg.sender] = newBalance;
+    }
+
+}
+
+
+/***************************************************************************************************************** 
+    1. create a new contract called Updated
+    2. (if you haven't done this) copy the contract LedgerBalance above your new contract
+    3. create a public function called updatesBalance
+    4. instantiate the data type contract LedgerBalance to a new variable called ledgerbalance (similar to struct or enum).
+    5. set the new variable ledgerbalance = new LedgerBalance() 
+    6. update the ledgebalance to 30 
+    7. deploy both contracts and up then update the ledgerbalance by 30 using the Updated contract 
+ *****************************************************************************************************************/
+
+contract UpdateLedgerBalance {
+    
+    function updatesBalance() public {
+        LedgerBalance ledgerBalance = new LedgerBalance();
+        ledgerBalance.updatesBalance(30);
+    }
+    
+}
