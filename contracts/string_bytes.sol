@@ -49,7 +49,6 @@ contract learnStrings {
         return favoriteColor;
     }
     
-    
     function changeColor(string memory _color) public {
         favoriteColor = _color;
     }
