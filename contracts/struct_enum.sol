@@ -9,7 +9,7 @@ struct Instructor {
     address addr;
 }
 
-// Contract 1 (Academy)
+// Academy
 contract Academy {
     Instructor public academyInstructor; // a state variabla of type Instructor
 
@@ -38,16 +38,13 @@ contract Academy {
     }
 }
 
-// Contract 2 (School)
-contract School {
-    Instructor public schoolInstructor;
-}
-
 
 /***************************************************************************************************************** 
-    Enums restrict a variable to have one of only a few predefined values. The values in this enumerated list are called enums.
-    With the use of enums it is possible to reduce the number of bugs in your code.
-    enum for our food app that offers either large medium or small options!
+    Enums
+
+        Enums restrict a variable to have one of only a few predefined values. The values in this enumerated list are called enums.
+        With the use of enums it is possible to reduce the number of bugs in your code.
+        enum for our food app that offers either large medium or small options!
  *****************************************************************************************************************/
 
 contract enumsLearn {
@@ -70,9 +67,34 @@ contract enumsLearn {
     }
 }
 
-// 1. create an enum for the color of shirts called shirtColor and set it to the options of either RED or WHITE or BLUE
-// 2 create a data of shirtColor called defaultChoice which is a constant set to the color BLUE 
-// 3. create a data of shirtColor called choice and don't initiate the value
-// 4. create a function called setWhite which changes the shirt color of shirtColor to white
-// 5. create a function getChoice which returns the current choice of shirtColor
-// 6. create a function getDefaultChoice which returns the default choice of shirtColor
+
+/***************************************************************************************************************** 
+    Struct
+    
+        Struct are types that are used to represent a record. Suppose you want to keep track of your movies in a library. 
+        You might want to track the following attributes about each movie
+ *****************************************************************************************************************/
+
+contract learnStructs {
+    
+    struct Movie {
+        string title;
+        string director;
+        uint movie_id;
+    }
+
+    Movie comedy;
+    
+    function setMovie() public {
+       comedy = Movie('Zoolander', 'Ben Stiller', 4);
+    }
+
+    function getMovieId() public view returns(uint) {
+        return comedy.movie_id;
+    }
+
+    function getMovie() public view returns(Movie memory) {
+        return comedy;
+    }
+
+}
