@@ -55,6 +55,14 @@ contract learnMapping {
         Create a map called movie which takes a uint as a key and Movie as a value 
         create a function called addMovie which takes three inputs, movie id, title and director which assigns a value of an integer to a movie added back to the movie map. It should include a title and director name.
         Deploy the contract and update the movie information to the movie map with our favorite movies! 
+
+
+
+    Nested Mapping (maps within maps):
+
+        what if you wanted to store movies that belong to a certain person, thing or address ***very important***
+        anther example - allow one address to spend on behalf of another address (ERC20 tokens)
+        ex: mapping(key =>mapping(key2 => value2)) nestedMap
  *****************************************************************************************************************/    
 
 contract testMapping {
@@ -73,8 +81,7 @@ contract testMapping {
     
     function addMyMovie(uint id, string memory title, string memory director) public {
         myMovie[msg.sender][id] = Movie(title, director); 
-        // msg.sender is a global variable accessible throughout solidity which captures the address that
-        // is calling the contract
+        // `msg.sender` is a global variable accessible throughout solidity which captures the address that is calling the contract
     }
 
 }
